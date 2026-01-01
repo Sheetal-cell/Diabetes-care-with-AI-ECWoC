@@ -26,7 +26,7 @@ This project provides users with the following features:
 Clone the repo and open `index.html` in any modern browser to explore the site locally.
 
 ## Contribution
-Contributions are welcome! Feel free to open issues or submit pull requests.
+Contributions are welcome! Feel free to open issues or submit pull requests
 
 ---
 
