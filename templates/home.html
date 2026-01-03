@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="{{ current_language }}">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,22 +21,35 @@
       transform-style: preserve-3d;
       animation: textFloat 3s ease-in-out infinite alternate;
     }
+
     @keyframes textFloat {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-8px); }
+      0% {
+        transform: translateY(0);
+      }
+
+      100% {
+        transform: translateY(-8px);
+      }
     }
 
     .animate-scale-up {
       animation: scaleUp 2.5s ease-in-out infinite alternate;
     }
+
     @keyframes scaleUp {
-      0% { transform: scale(1); }
-      100% { transform: scale(1.1); }
+      0% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1.1);
+      }
     }
 
     .btn-3d {
       transition: transform 0.3s ease;
     }
+
     .btn-3d:hover {
       transform: translateY(-3px);
       box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
@@ -44,8 +58,11 @@
     .floating-img {
       animation: floatUpDown 4s ease-in-out infinite;
     }
+
     @keyframes floatUpDown {
-      50% { transform: translateY(-15px); }
+      50% {
+        transform: translateY(-15px);
+      }
     }
     
     .lang-dropdown {
@@ -62,42 +79,7 @@
 <body class="min-h-screen flex flex-col font-sans bg-gray-50 text-gray-800">
 
   <!-- Header -->
-  <header class="bg-blue-700 text-white shadow-lg sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
-      <h1 class="text-4xl font-extrabold text-3d hover:scale-[1.03] transition-transform duration-300">
-        <a href="/" class="flex items-center gap-3 cursor-pointer no-underline">
-        {{ _('Diabetes Care') }}
-        </a>
-      </h1>
-      <nav class="flex items-center gap-4">
-        <ul class="flex space-x-6 text-lg font-semibold">
-          <li><a href="/" class="hover:text-blue-300">{{ _('Home') }}</a></li>
-          <li><a href="/index" class="hover:text-blue-300">{{ _('Prediction') }}</a></li>
-          <li><a href="/life" class="hover:text-blue-300">{{ _('Lifestyle Check') }}</a></li>
-          <li><a href="/chatbot" class="hover:text-blue-300">{{ _('Chatbot') }}</a></li>
-          <li><a href="/explore" class="hover:text-blue-300">{{ _('Explore Data') }}</a></li>
-          <li><a href="/forum" class="hover:text-blue-300">{{ _('Forum') }}</a></li>
-        </ul>
-        <!-- Language Selector -->
-        <div class="relative ml-4">
-          <button id="lang-btn" class="flex items-center space-x-1 px-3 py-1 rounded hover:bg-blue-600 transition text-sm">
-            <span>{{ languages.get(current_language, 'English') }}</span>
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div id="lang-dropdown" class="lang-dropdown absolute right-0 mt-2 w-40 bg-white rounded-md shadow-lg z-50">
-            {% for code, name in languages.items() %}
-            <button onclick="setLanguage('{{ code }}')" 
-                    class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-blue-100 text-sm {% if code == current_language %}bg-blue-50 font-semibold{% endif %}">
-              {{ name }}
-            </button>
-            {% endfor %}
-          </div>
-        </div>
-      </nav>
-    </div>
-  </header>
+  {% include 'navbar.html' %}
 
   <!-- Hero Section -->
   <main class="flex-grow bg-gradient-to-br from-blue-200 to-white px-6 py-24">
@@ -142,12 +124,9 @@
       </div>
 
       <div class="text-center md:text-right">
-        <h3 class="text-white text-xl mb-2">{{ _('Connect with me') }}</h3>
-        <a
-          href="https://www.linkedin.com/in/anshika-singh-031b132a5/"
-          target="_blank"
-          class="text-blue-300 hover:text-blue-400"
-        >
+        <h3 class="text-white text-xl mb-2">Connect with me</h3>
+        <a href="https://www.linkedin.com/in/anshika-singh-031b132a5/" target="_blank"
+          class="text-blue-300 hover:text-blue-400">
           LinkedIn
         </a>
       </div>
@@ -189,4 +168,5 @@
   </script>
 
 </body>
+
 </html>
